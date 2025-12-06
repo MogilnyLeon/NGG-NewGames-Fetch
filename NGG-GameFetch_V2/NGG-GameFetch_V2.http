@@ -1,0 +1,6 @@
+@NGG_GameFetch_V2_HostAddress = http://localhost:5184
+
+GET {{NGG_GameFetch_V2_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
