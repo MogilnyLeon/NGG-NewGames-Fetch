@@ -22,6 +22,11 @@ namespace NGG_GameFetch_V2
                 options.UseInMemoryDatabase("NGG-NewGames");
             });
 
+            builder.Services.AddCors(o => o.AddDefaultPolicy(policy =>
+            {
+                policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+            }));
+
             var app = builder.Build();
 
             app.EnsureDbIsCreated();
@@ -33,6 +38,7 @@ namespace NGG_GameFetch_V2
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            app.UseCors();
 
             app.UseHttpsRedirection();
 
